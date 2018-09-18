@@ -3,13 +3,14 @@ const app = express();
 const dbMethods = require('../database/index.js');
 const bodyParser = require('body-parser');
 const path = require('path');
+const port = process.env.PORT || 3002;
 
 
-app.use('/:rest_id', express.static(__dirname + './../public/'));
+app.use('/restaurant/:id', express.static(__dirname + './../public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/photos/:rest_id', function(req, res) {
-  dbMethods.getPhotos(req.params.rest_id, function(err, data) {
+app.get('/restaurant/:id/photos', function(req, res) {
+  dbMethods.getPhotos(req.params.id, function(err, data) {
     if (err) {
       res.sendStatus(503);
     } else {
@@ -28,4 +29,4 @@ app.get('/photos/:rest_id', function(req, res) {
 //   })
 // })
 
-app.listen(3000, () => console.log('listening on port 3000!'));
+app.listen(port, () => console.log(`listening on port ${port}!`));

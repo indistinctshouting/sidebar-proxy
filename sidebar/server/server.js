@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db/db.js');
+const cors = require('cors');
 const port = process.env.PORT || 3001;
 
 let app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 app.use('/restaurant/:id', express.static(__dirname + '/../client/dist'));
 
 app.get('/restaurant/:id/description', (req, res) => {

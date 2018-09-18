@@ -46,7 +46,7 @@ class App extends React.Component {
       return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
     };
     $.ajax({
-      url: `/photos/${restId}`,
+      url: `/restaurant/${restId}/photos`,
       method: 'GET',
       success: function(data) {
         for (var i = 0; i < data.length; i++) {
