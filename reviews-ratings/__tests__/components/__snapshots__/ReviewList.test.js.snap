@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReviewList /> render() renders the component 1`] = `
+<div>
+  <ul
+    className="review-list-container"
+  />
+</div>
+`;
