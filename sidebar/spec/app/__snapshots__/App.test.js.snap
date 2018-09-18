@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render App component correctly 1`] = `
+<div>
+  Yelp
+  <br />
+  <br />
+  <button
+    onClick={[Function]}
+  >
+    Show Menu
+  </button>
+  <br />
+  <Menu
+    hideMenu={[Function]}
+    menuInfo={Object {}}
+    show={false}
+  />
+</div>
+`;

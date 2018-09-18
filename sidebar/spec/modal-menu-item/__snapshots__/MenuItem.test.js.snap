@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItem should render a MenuItem correctly 1`] = `
+<div>
+  <hr />
+  <Media
+    bsClass="media"
+    componentClass="div"
+  >
+    <MediaLeft
+      align="middle"
+      bsClass="media-left"
+    >
+      <img
+        alt="thumbnail"
+        height={70}
+        src="https://s3-media2.fl.yelpcdn.com/assets/2/www/img/dca54f97fb84/default_avatars/menu_medium_square.png"
+        width={70}
+      />
+    </MediaLeft>
+    <MediaBody
+      bsClass="media-body"
+      componentClass="div"
+    >
+      <MediaHeading
+        bsClass="pull-left"
+        componentClass="h5"
+      >
+        <strong
+          className="blue-text"
+        >
+          potato
+        </strong>
+      </MediaHeading>
+      <MediaHeading
+        bsClass="pull-right"
+        componentClass="h5"
+      >
+        <strong>
+          500.00
+        </strong>
+      </MediaHeading>
+      <br />
+      <br />
+      <p>
+        it is a potater
+      </p>
+    </MediaBody>
+  </Media>
+</div>
+`;

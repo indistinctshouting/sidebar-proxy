@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should render menu component correctly 1`] = `
+<div
+  className="display-none"
+>
+  <section
+    className="modal-main"
+  >
+    <h4>
+      Menu For 
+      restaurant
+      <button
+        aria-label="Close"
+        className="close"
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+          ✕
+        </span>
+      </button>
+      <hr />
+    </h4>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </section>
+</div>
+`;
