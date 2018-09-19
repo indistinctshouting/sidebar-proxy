@@ -1,6 +1,6 @@
 const faker = require('faker');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://bro1:password1@ds149252.mlab.com:49252/yelp-restaurant-info');
+mongoose.connect('mlab link here');
 
 const reviewSchema = new mongoose.Schema({
   reviewId: Number, 

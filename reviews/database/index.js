@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connection = mongoose.createConnection('mongodb://bro1:password1@ds149252.mlab.com:49252/yelp-restaurant-info');
+const connection = mongoose.createConnection('mlab link here');
 // connection.on('error', console.error.bind(console, 'connection error'));
 // connection.once('open', () => {
 //   console.log('CONNECTED');
