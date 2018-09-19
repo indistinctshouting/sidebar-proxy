@@ -11,7 +11,7 @@ app.use(cors());
 app.use('/restaurant/:id', express.static(__dirname + './../public'));
 
 app.get('/restaurant/:id/photos', function(req, res) {
-  console.log(req.params.id);
+
   dbMethods.getPhotos(req.params.id, function(err, data) {
     if (err) {
       res.sendStatus(503);
