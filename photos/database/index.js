@@ -4,6 +4,7 @@ const faker = require('faker');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
+  password: 'password',
   database: 'photos'
 });
 
