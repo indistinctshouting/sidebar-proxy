@@ -17,14 +17,14 @@ const ReviewWrapper = styled.div`
     display: grid;
     grid-template-rows: repeat(5, 19px);
     width: 217;
-    height: 240px;
+    height: 130px;
   }
 `;
 
 // get a better idea of the ratios for the text wrapper
 const ReviewTextWrapper = styled.div`
   display: grid;
-  grid-template-rows: 1fr 6fr 1fr;
+  grid-template-rows: min-content min-content 60px;
   grid-row-gap: 15px;
   padding: 0 15px;
 `;

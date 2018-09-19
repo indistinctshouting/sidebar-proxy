@@ -12,7 +12,9 @@ const ReviewHeaderWrapper = styled.div`
 
 const HeaderUpper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, min-content);
+  grid-column-gap: 6px;
+  align-items: center;
 `;
 
 const ReviewHeader = ({ rating, date, updated, checkIns}) => (
