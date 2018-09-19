@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fec');
-mongoose.connection.on('error', console.error.bind(console, 'connection error'));
-mongoose.connection.once('open', () => {
-  console.log('CONNECTED');
-});
+const connection = mongoose.createConnection('mongodb://bro1:password1@ds149252.mlab.com:49252/yelp-restaurant-info');
+// connection.on('error', console.error.bind(console, 'connection error'));
+// connection.once('open', () => {
+//   console.log('CONNECTED');
+// });
 
 const reviewSchema = new mongoose.Schema({
   reviewId: Number, 
@@ -29,7 +29,7 @@ const reviewSchema = new mongoose.Schema({
   }
 });
 
-const Review = mongoose.model('Review', reviewSchema);
+const Review = connection.model('Review', reviewSchema);
 
 const getRestaurantReviews = (id, callback) => {
   console.log(id);

@@ -3,13 +3,15 @@ const app = express();
 const dbMethods = require('../database/index.js');
 const bodyParser = require('body-parser');
 const path = require('path');
-const port = process.env.PORT || 3002;
+const cors = require('cors');
+const port = process.env.PORT || 3003;
 
-
-app.use('/restaurant/:id', express.static(__dirname + './../public/'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+app.use('/restaurant/:id', express.static(__dirname + './../public'));
 
 app.get('/restaurant/:id/photos', function(req, res) {
+  console.log(req.params.id);
   dbMethods.getPhotos(req.params.id, function(err, data) {
     if (err) {
       res.sendStatus(503);

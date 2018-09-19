@@ -8,7 +8,7 @@ injectGlobal`
   ${reset}
 `;
 
-const Wrapper = styled.body`
+const Wrapper = styled.div`
   font-size: 14px;
   line-height: 1.28571em;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -23,14 +23,13 @@ export default class App extends React.Component {
   }
   
   componentDidMount() {
-    let restaurantId = window.location.pathname.split('/')[1];
+    let restaurantId = window.location.pathname.split('/')[2];
     this.getReviewData(restaurantId);
   }
 
   getReviewData(id) {
-    axios.get(`/reviews/id/${id}`)
+    axios.get(`http://localhost:3002/restaurant/${id}/reviews`)
       .then((response) => {
-        console.log(response.data);
         this.setState({
           reviews: response.data
         });

@@ -2,17 +2,22 @@ const express = require('express');
 const BodyParser = require('body-parser');
 const app = express();
 const db = require('./../database/');
+const cors = require('cors');
+const port = process.env.PORT || 3002;
 
 app.use(BodyParser.urlencoded({extended: true}));
 app.use(BodyParser.json());
+app.use(cors());
+app.use('/restaurant/:id', express.static(__dirname + './../public'));
 
-app.get('/reviews/id/:id', (req, res) => {
+app.get('/restaurant/:id/reviews', (req, res) => {
+  console.log(__dirname);
   db.getRestaurantReviews(req.params.id, (reviews) => {
     res.send(reviews);
   });
 });
-app.use('/:id', express.static(__dirname + './../public'));
 
-app.listen(3002, () => {
-  console.log('Port 3002 we read you loud and clear');
+
+app.listen(port, () => {
+  console.log(`Port ${port} we read you loud and clear`);
 });

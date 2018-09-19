@@ -41,12 +41,12 @@ class App extends React.Component {
   getData() {
     var context = this;
     var foodPics = [];
-    const restId = window.location.pathname.split('/')[1];
+    const restId = window.location.pathname.split('/')[2];
     var getRandomInt = function(min, max) {
       return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
     };
     $.ajax({
-      url: `/restaurant/${restId}/photos`,
+      url: `http://localhost:3003/restaurant/${restId}/photos`,
       method: 'GET',
       success: function(data) {
         for (var i = 0; i < data.length; i++) {
