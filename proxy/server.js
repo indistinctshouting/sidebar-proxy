@@ -32,7 +32,7 @@ app.get('/reviews/id/:id/', (req, res) => {
 });
 
 app.get('/photos/:rest_id', (req, res) => {
-  let id = req.params.id;
+  let id = req.params.rest_id;
   axios.get(`http://localhost:3001/photos/${id}`)
     .then((results) => {
       res.send(results.data);
