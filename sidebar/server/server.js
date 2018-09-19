@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db/db.js');
+const port = process.env.PORT || 3003
 
 let app = express();
 
@@ -20,6 +21,6 @@ app.get('/summary/id/:id', (req, res) => {
   })
 });
 
-app.listen(3000, () => {
-  console.log('listening for u on 3000 bro');
+app.listen(port, () => {
+  console.log(`listening for u on ${port} bro`);
 });
