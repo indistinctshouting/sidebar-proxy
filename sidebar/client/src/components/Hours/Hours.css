@@ -15,14 +15,16 @@
 }
 
 .hours {
-  margin-bottom: 6px;
   width: auto;
   border-collapse: collapse;
   border-spacing: 0;
-  padding: 0 1em 0 0;
   border: none;
   vertical-align: baseline;
   display: table-cell;
+}
+
+.tablepadding {
+  padding-top: 9px;
 }
 
 .day {

@@ -24,7 +24,7 @@ const TimeToday = (props) => {
       <div className={style.summaryicon}>
         <FontAwesomeIcon icon="clock" className={iconColor}/>
       </div>
-      <div>
+      <div className={style.summarydiv}>
         <span>Today</span>
         <span className={style.bolded}> {props.times}</span>
         <span className={`${openOrClosedClass} + ${style.bolded}`}> {statusText}</span>

@@ -24,15 +24,21 @@ const Hours = (props) => {
   if (!!hourBounds) {
     startToday = moment(hourBounds[0], 'h:mma');
     endToday = moment(hourBounds[1], 'h:mma');
-    isOpen = (currHoursMoment.isAfter(startToday) && currHoursMoment.isBefore(endToday));
+    if (hourBounds[0].includes('pm') && hourBounds[1].includes('am') && currHours.includes('pm')) {
+      isOpen = (currHoursMoment.isAfter(startToday));
+    } else if (hourBounds[0].includes('pm') && hourBounds[1].includes('am') && currHours.includes('am')) {
+      isOpen = (currHoursMoment.isBefore(endToday));
+    } else {
+      isOpen = (currHoursMoment.isAfter(startToday) && currHoursMoment.isBefore(endToday));
+    }
   }
 
   return (
     <div>
-      <h4 className={style.redtext}>
+      <span className={style.redtext}>
         Hours
-      </h4>
-      <table>
+      </span>
+      <table className={style.tablepadding}>
         <tbody>
           {days.map(day => 
             <HourItem 

@@ -11,7 +11,7 @@ const Health = (props) => (
     <div className={style.summaryicon}>
       <FontAwesomeIcon icon="plus-square"/>
     </div>
-    <div>
+    <div className={style.summarydivlast}>
       <span className={`${style.bluetext} ${style.bolded}`}>Health Score </span>
       <span className={style.bolded}>{props.score} out of 100</span>
     </div>

@@ -18,7 +18,23 @@ const Summary = (props) => {
   if (!!hourBounds) {
     startToday = moment(hourBounds[0], 'h:mma');
     endToday = moment(hourBounds[1], 'h:mma');
-    isOpen = (currHoursMoment.isAfter(startToday) && currHoursMoment.isBefore(endToday));
+    if (hourBounds[0].includes('pm') && hourBounds[1].includes('am') && currHours.includes('pm')) {
+      isOpen = (currHoursMoment.isAfter(startToday));
+    } else if (hourBounds[0].includes('pm') && hourBounds[1].includes('am') && currHours.includes('am')) {
+      isOpen = (currHoursMoment.isBefore(endToday));
+    } else {
+      isOpen = (currHoursMoment.isAfter(startToday) && currHoursMoment.isBefore(endToday));
+    }
+  }
+
+  let menuButton;
+  if (props.menuExists) {
+    menuButton = 
+    <div className={style.summaryitem}>
+      <MenuButton
+        showMenu={props.showMenu}
+      />
+    </div>
   }
 
   return (
@@ -29,11 +45,7 @@ const Summary = (props) => {
           isOpen={isOpen}
         />
       </div>
-      <div className={style.summaryitem}>
-        <MenuButton
-          showMenu={props.showMenu}
-        />
-      </div>
+      {menuButton}
       <div className={style.summaryitem}>
         <Price
           priceRange={props.priceRange}

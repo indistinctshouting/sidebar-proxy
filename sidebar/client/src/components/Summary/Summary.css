@@ -1,7 +1,6 @@
 .summary {
   background: #fff;
-  margin-bottom: 18px;
-  padding-left: 12px;
+  padding-left: 6px;
   padding-right: 12px;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
@@ -10,17 +9,34 @@
 }
 
 .summaryitem {
-  padding: 9px 0;
-  border-bottom: 1px solid #e6e6e6;
-  padding-bottom: 12px;
+  padding-top: 12px;
   width: 100%;
   display: table;
-  margin-bottom: 0;
+}
+
+.summarydiv {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 12px;
+  padding-right: 9px;
+  align-content: center;
+}
+
+.summarydivlast {
+  padding-bottom: 12px;
+  padding-right: 9px;
 }
 
 .summaryicon {
-  align-self: center;
   justify-self: center;
+  align-self: stretch;
+  font-size: 16px;
+}
+
+.summaryiconsmall {
+  justify-self: center;
+  align-self: stretch;
+  font-size: 14px;
+  font-weight: 100;
 }
 
 .summarycheckopen {
@@ -40,7 +56,6 @@
 
 .bluetext {
   color: #0073BB;
-  font-size: 14px;
 }
 
 .bolded {

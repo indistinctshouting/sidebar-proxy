@@ -11,7 +11,7 @@ const MenuButton = (props) => (
     <div className={style.summaryicon}>
       <FontAwesomeIcon icon="utensils"/>
     </div>
-    <a onClick={props.showMenu} className={`${style.bolded} ${style.bluetext}`}> Full Menu</a>
+    <a onClick={props.showMenu} className={`${style.bolded} ${style.bluetext} ${style.summarydiv}`}> Full Menu</a>
   </li>
 )
 

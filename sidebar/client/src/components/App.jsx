@@ -29,10 +29,10 @@ class App extends React.Component {
   }
 
   getData() {
-    const id = window.location.pathname.split('/')[2];
-    axios.get(`http://localhost:3001/restaurant/${id}/description`)
+    const id = window.location.pathname.split('/')[1];
+    axios.get(`/summary/id/${id}`)
       .then((res) => {
-        console.log("SIDE BAR DATA IS ===" + res.data);
+        console.log(res.data);
         this.setState({ restaurantData: res.data, date: new Date() });
       });
   }
@@ -43,6 +43,16 @@ class App extends React.Component {
 
 
   render() {
+    let menu;
+    if (!!this.state.restaurantData.menu) {
+      menu = <Menu
+        show={this.state.showMenu}
+        hideMenu={this.hideMenu}
+        menuInfo={this.state.restaurantData.menu}
+        name={this.state.restaurantData.restaurant_name}
+      />
+    }
+
     return (
       <div className={styles.sidebar}>
         <div className={styles.sidebarcontainer}>
@@ -52,6 +62,7 @@ class App extends React.Component {
               showMenu={this.showMenu}
               priceRange={this.state.restaurantData.price_range}
               health={this.state.restaurantData.health_score}
+              menuExists={!!this.state.restaurantData.menu}
             />
           </div>
           <div className={styles.hourcontainer}>
@@ -60,12 +71,7 @@ class App extends React.Component {
             />
           </div>
         </div>
-        <Menu
-          show={this.state.showMenu}
-          hideMenu={this.hideMenu}
-          menuInfo={this.state.restaurantData.menu}
-          name={this.state.restaurantData.restaurant_name}
-        />
+          {menu}
       </div>
     )
   }
