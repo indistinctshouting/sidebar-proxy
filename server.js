@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/:id', express.static(__dirname + '/public/dist'));
 
-app.get('/summary/id/:id/', (req, res) => {
-  let id = req.params.id;
-  res.redirect(`${urlSidebar}/summary/id/${id}`);
-});
+// app.get('/summary/id/:id/', (req, res) => {
+//   let id = req.params.id;
+//   res.redirect(`${urlSidebar}/summary/id/${id}`);
+// });
 
 app.get('/reviews/id/:id/', (req, res) => {
   let id = req.params.id;
