@@ -2,42 +2,31 @@ const express = require('express');
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const cors = require('cors');
 
+const urlSidebar = 'http://yelp-sidebar.hv38tyz7mj.us-west-2.elasticbeanstalk.com';
 const urlPhotos = '';
 const urlReviews = '';
-const urlSidebar = 'http://yelp-sidebar.hv38tyz7mj.us-west-2.elasticbeanstalk.com';
-
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 app.use('/:id', express.static(__dirname + '/public/dist'));
 
 app.get('/summary/id/:id/', (req, res) => {
   let id = req.params.id;
-  res.redirect(`${urlSidebar}/${id}`);
+  res.redirect(`${urlSidebar}/summary/id/${id}`);
 });
 
 app.get('/reviews/id/:id/', (req, res) => {
   let id = req.params.id;
-  axios.get(`http://localhost:3002/reviews/id/${id}`)
-    .then((results) => {
-      res.send(results.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  res.redirect(`${urlReviews}/reviews/id/${id}`)
 });
 
 app.get('/photos/:rest_id', (req, res) => {
   let id = req.params.rest_id;
-  axios.get(`http://localhost:3001/photos/${id}`)
-    .then((results) => {
-      res.send(results.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  res.redirect(`${urlPhotos}/photos/${id}`)
 });
 
 app.listen(port, () => {
