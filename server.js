@@ -1,8 +1,6 @@
 const express = require('express');
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
-const axios = require('axios');
-const cors = require('cors');
 
 const urlSidebar = 'http://yelp-sidebar.hv38tyz7mj.us-west-2.elasticbeanstalk.com';
 const urlPhotos = '';
@@ -11,7 +9,6 @@ const urlReviews = '';
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
 app.use('/:id', express.static(__dirname + '/public/dist'));
 
 app.get('/summary/id/:id/', (req, res) => {
